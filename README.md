@@ -1,3 +1,0 @@
-# kakaotalk-explorer
-Kakaotalk explorer
-
