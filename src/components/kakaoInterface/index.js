@@ -7,7 +7,7 @@ import KakaoInterfaceContext from '../../context/kakaoInterface.js';
 import Chat from './Chat.js';
 import Notify from './Notify.js';
 import ScrollWrapperElem from '../ScrollWrapper.js';
-import { ReactComponent as HamburgerSvg } from '../../menu.svg';
+import { ReactComponent as HamburgerSvg } from '../../resources/menu.svg';
 
 const Frame = styled.div`
   width: 440px;

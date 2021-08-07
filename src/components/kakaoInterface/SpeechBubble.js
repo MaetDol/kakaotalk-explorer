@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { ReactComponent as BookmarkSvg } from '../../bookmark.svg';
+import { ReactComponent as BookmarkSvg } from '../../resources/bookmark.svg';
 import KakaoInterfaceContext from '../../context/kakaoInterface.js';
 
 const Wrapper = styled.div`

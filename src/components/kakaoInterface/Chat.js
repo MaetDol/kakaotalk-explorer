@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import colorGenerator from '../../lib/colorGenerator.js';
 
 import SpeechBubble from './SpeechBubble';
-import { ReactComponent as ProfileSvg } from '../../profile.svg';
+import { ReactComponent as ProfileSvg } from '../../resources/profile.svg';
 
 const Wrapper = styled.div`
 `;
