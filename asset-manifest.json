@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/kakaotalk-explorer/static/css/main.16fcc323.chunk.css",
+    "main.js": "/kakaotalk-explorer/static/js/main.fa636ea9.chunk.js",
+    "main.js.map": "/kakaotalk-explorer/static/js/main.fa636ea9.chunk.js.map",
+    "runtime-main.js": "/kakaotalk-explorer/static/js/runtime-main.74e159b9.js",
+    "runtime-main.js.map": "/kakaotalk-explorer/static/js/runtime-main.74e159b9.js.map",
+    "static/js/2.07184635.chunk.js": "/kakaotalk-explorer/static/js/2.07184635.chunk.js",
+    "static/js/2.07184635.chunk.js.map": "/kakaotalk-explorer/static/js/2.07184635.chunk.js.map",
+    "index.html": "/kakaotalk-explorer/index.html",
+    "precache-manifest.062434f754baf7f1dc5eaec2d2551877.js": "/kakaotalk-explorer/precache-manifest.062434f754baf7f1dc5eaec2d2551877.js",
+    "service-worker.js": "/kakaotalk-explorer/service-worker.js",
+    "static/css/main.16fcc323.chunk.css.map": "/kakaotalk-explorer/static/css/main.16fcc323.chunk.css.map",
+    "static/js/2.07184635.chunk.js.LICENSE.txt": "/kakaotalk-explorer/static/js/2.07184635.chunk.js.LICENSE.txt",
+    "static/media/bookmark.cc92b0c3.svg": "/kakaotalk-explorer/static/media/bookmark.cc92b0c3.svg",
+    "static/media/checkbox_blank.efb77d46.svg": "/kakaotalk-explorer/static/media/checkbox_blank.efb77d46.svg",
+    "static/media/checkbox_checked.97c27ec6.svg": "/kakaotalk-explorer/static/media/checkbox_checked.97c27ec6.svg",
+    "static/media/menu.9e784c89.svg": "/kakaotalk-explorer/static/media/menu.9e784c89.svg",
+    "static/media/profile.84bb523a.svg": "/kakaotalk-explorer/static/media/profile.84bb523a.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.74e159b9.js",
+    "static/js/2.07184635.chunk.js",
+    "static/css/main.16fcc323.chunk.css",
+    "static/js/main.fa636ea9.chunk.js"
+  ]
+}
