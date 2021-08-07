@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
 import ExplorerContext from '../../context/explorer.js';
@@ -80,19 +80,22 @@ function KakaoInterface({ chatRoomTitle, numberOfPeople }) {
     }
   };
 
+  const [loading, setLoading] = useState(false);
   const loadByScroll = e => {
     if( explorer.isReading ) {
       return;
     }
     const scrollBottom = e.target.scrollTop + e.target.offsetHeight;
     const chatContainerHeight = e.target.children[0].offsetHeight;
-    const isScrollEnd = scrollBottom * 1.3 > chatContainerHeight;
-    if( isScrollEnd ) {
+    const isScrolled = scrollBottom * 1.3 > chatContainerHeight;
+    if( isScrolled && !loading ) {
+      setLoading(true);
       explorer.getParsedChats('NEXT', 10).then( chats => {
         setLoadedChats([
           ...loadedChats,
           ...chats
         ]);
+        setLoading(false);
       });
     }
   };
