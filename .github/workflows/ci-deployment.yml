@@ -10,10 +10,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install yarn
+        run: |
+          npm install --global yarn
+
       - name: Install dependencies then Deploy
         run: |
-          npm install
-          npm run build
+          yarn install
+          yarn build
       
       - name: Git config
         run: |
