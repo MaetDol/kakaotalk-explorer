@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import './index.css';
+import './resources/index.css';
 
 import { ExplorerProvider } from './context/explorer.js';
 import { KakaoInterfaceProvider } from './context/kakaoInterface.js';

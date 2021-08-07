@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { ReactComponent as BlankCheckbox } from '../checkbox_blank.svg';
-import { ReactComponent as CheckedCheckbox } from '../checkbox_checked.svg';
+import { ReactComponent as BlankCheckbox } from '../resources/checkbox_blank.svg';
+import { ReactComponent as CheckedCheckbox } from '../resources/checkbox_checked.svg';
 
 const CheckboxInput = styled.input`
   display: none;
