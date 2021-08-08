@@ -1,18 +1,19 @@
+const ChatType = {
+  INVALID: -1,
+  END_OF_FILE: 0,
+  CHAT: 1,
+  SYSTEM_MESSAGE: 2,
+  TIMESTAMP: 3
+};
+
+const MOBILE_TIMESTAMP_FORM = `\\d{4}년 \\d{1,2}월 \\d{1,2}일 오. \\d{1,2}:\\d{2}`;
+const MOBILE_TIMESTAMP_REGEX = new RegExp( MOBILE_TIMESTAMP_FORM );
+
 export default class ExplorManager {
   constructor( fileManager ) {
     this.fileManager = fileManager;
     this.exitSearch = false;
     this.cursorByDates = {};
-
-    this.MOBILE_TIMESTAMP_FORM = `\\d{4}년 \\d{1,2}월 \\d{1,2}일 오. \\d{1,2}:\\d{2}`;
-    this.MOBILE_TIMESTAMP_REGEX = new RegExp( this.MOBILE_TIMESTAMP_FORM );
-    this.chatType = {
-      INVALID: -1,
-      END_OF_FILE: 0,
-      CHAT: 1,
-      SYSTEM_MESSAGE: 2,
-      TIMESTAMP: 3
-    };
     
     const methodsBeLocked = [
       this.getWrappedChats,
@@ -77,7 +78,7 @@ export default class ExplorManager {
     }
     let withoutTimestamp = '';
     if( chat ) {
-      withoutTimestamp = `|(.*\\n(?!${this.MOBILE_TIMESTAMP_FORM}))+.*${chat}`;
+      withoutTimestamp = `|(.*\\n(?!${MOBILE_TIMESTAMP_FORM}))+.*${chat}`;
     }
 
     if( user ) {
@@ -139,7 +140,7 @@ export default class ExplorManager {
   }
 
   isMobileChat( line ) {
-    return this.MOBILE_TIMESTAMP_REGEX.test( line );
+    return MOBILE_TIMESTAMP_REGEX.test( line );
   }
 
   async getNextChat( cursor ) {
@@ -228,30 +229,30 @@ export default class ExplorManager {
 
   parse( lines ) {
     if( lines.length === 0 ) {
-      return { type: this.chatType.END_OF_FILE };
+      return { type: ChatType.END_OF_FILE };
     }
-    const regex = new RegExp(`(${this.MOBILE_TIMESTAMP_FORM})(, ((.+) : )?(.+))?`);
+    const regex = new RegExp(`(${MOBILE_TIMESTAMP_FORM})(, ((.+) : )?(.+))?`);
     let matched = lines[0].match( regex );
     // Invalid format
     if( matched === null ) {
-      return { type: this.chatType.INVALID };
+      return { type: ChatType.INVALID };
     }
     lines.shift();
     let texts, type, name, timestamp = matched[1];
     // Timestamp only
     if( matched[5] === undefined ) {
-      type = this.chatType.TIMESTAMP;
+      type = ChatType.TIMESTAMP;
     }
     // System message
     else if( matched[4] === undefined ) {
       texts = [matched[5], ...lines];
-      type = this.chatType.SYSTEM_MESSAGE;
+      type = ChatType.SYSTEM_MESSAGE;
     }
     // User chat
     else if( matched[3] && matched[4] ) {
       name = matched[4];
       texts = [matched[5], ...lines];
-      type = this.chatType.CHAT;
+      type = ChatType.CHAT;
     }
 
     return {texts, type, name, timestamp};
@@ -259,7 +260,7 @@ export default class ExplorManager {
 
   async indexingDates() {
     const dateRegExp = new RegExp(
-      `\\n${this.MOBILE_TIMESTAMP_FORM}\\s\\n`
+      `\\n${MOBILE_TIMESTAMP_FORM}\\s\\n`
     );
     const positions = await this.searchAll( dateRegExp );
     for( let i=0; i < positions.length; i++ ) {
@@ -270,15 +271,15 @@ export default class ExplorManager {
   }
 
   isChat( type ) {
-    return type === this.chatType.CHAT;
+    return type === ChatType.CHAT;
   }
 
   isTimestamp( type ) {
-    return type === this.chatType.TIMESTAMP;
+    return type === ChatType.TIMESTAMP;
   }
 
   isSystemMessage( type ) {
-    return type === this.chatType.SYSTEM_MESSAGE;
+    return type === ChatType.SYSTEM_MESSAGE;
   }
 
   async getParsedChats( direction, count, cursor=this.fileCursor ) {
