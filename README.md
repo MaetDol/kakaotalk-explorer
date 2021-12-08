@@ -1,3 +1,7 @@
+## 알림 🛑
+- **내보내기를 통한 텍스트 파일을 이용해 탐색하는 앱입니다**
+- **구현이 완료되지 않았습니다 현재 사용시 에러가 발생합니다**
+
 # kakaotalk-explorer
 ![image](https://user-images.githubusercontent.com/20384262/128588150-f45b9218-6151-460b-a7fe-dcb987de8ea0.png)
 카카오톡 채팅 내역검색을 도와주는 웹앱입니다
